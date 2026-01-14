@@ -1,6 +1,5 @@
 #pragma once
 
-#include <cstdint>
 #include <cstdlib>
 #include <span>
 #include <string_view>

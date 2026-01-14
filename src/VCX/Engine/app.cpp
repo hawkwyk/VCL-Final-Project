@@ -10,7 +10,7 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-#include "Engine/app.h"
+#include "Engine/App.h"
 
 static GLFWwindow *                      g_glfwWindow;
 static std::function<void()>             g_glfwWindowRefreshCallback;
@@ -67,9 +67,7 @@ namespace VCX::Engine::Internal {
 
     void RunApp_Init(AppContextOptions const & options) {
         RunApp_InitGLFW(options);
-        #ifndef PLATFORM_MACOSX
-            RunApp_InitGLFWWindowIcons(options);
-        #endif
+        RunApp_InitGLFWWindowIcons(options);
         RunApp_InitGLAD();
         RunApp_InitImGui(options);
     }
@@ -166,12 +164,17 @@ namespace VCX::Engine::Internal {
 
     static void RunApp_InitImGui(AppContextOptions const & options) {
         ImGui::CreateContext();
+        
+        // Disable ID conflict warnings as suggested in the warning message
+        ImGuiIO& io = ImGui::GetIO();
+        io.ConfigDebugHighlightIdConflicts = false;
+        
         for (auto const & fontFileName : options.FontFileNames) {
             assert(*(fontFileName.cend()) == '\0');
-            ImGui::GetIO().Fonts->AddFontFromFileTTF(fontFileName.data(), options.FontSize);
+            io.Fonts->AddFontFromFileTTF(fontFileName.data(), options.FontSize);
         }
-        ImGui::GetIO().IniFilename = nullptr;
-        ImGui::GetIO().LogFilename = nullptr;
+        io.IniFilename = nullptr;
+        io.LogFilename = nullptr;
 
         ImGui_ImplOpenGL3_Init();
         ImGui_ImplGlfw_InitForOpenGL(g_glfwWindow, true);
