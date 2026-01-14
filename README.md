@@ -68,7 +68,7 @@ The `Action` class manages animation playback:
 ---
 
 ## 4. Result
-Run the following command lines in Powershell at the root directory `VCL-Final-Project`. The bvh files are saved in `assets/BVH_data`.
+Run the following command lines in Powershell at the root directory `VCL-Final-Project`. The bvh files are saved in `assets/BVH_data`. The data comes from [https://github.com/Shriinivas/cmubvh/tree/main](https://github.com/Shriinivas/cmubvh/tree/main).
 ```
 xmake
 xmake run final
