@@ -1,11 +1,3 @@
-<div style="text-align: center;">
-    <h1>VCL Final Project Report: BVH Loader</h1>
-    <p style="font-style: italic; font-size: 20px">王一楷&emsp;2400013557</p>
-    <p style="font-style: italic; font-size: 20px">2026/1/10</p>
-</div>
-
----
-
 ## 1. Introduction
 This project implements a complete BVH (BioVision Hierarchy) file loader and skeleton animation rendering system, designed to parse BVH motion capture files, construct 3D skeleton structures, and render real-time skeleton animations with interactive controls. The system supports core functionalities such as dynamic BVH file selection, skeleton visualization, animation playback control, anti-aliasing adjustment, and video frame export, providing an intuitive interface for viewing and manipulating skeletal motion data.
 
